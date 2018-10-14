@@ -1,0 +1,169 @@
+@charset "UTF-8";
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "FontAwesome";
+  src: url('./fontawesome-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  font: 16px/1.8 sans-serif;
+  background-size: 100%;
+  background-image: linear-gradient(-30deg, #e6f0fc, #bde5d1);
+}
+
+.movie-wishlist {
+  box-shadow: 0 4px 16px #aaa;
+  max-width: 500px;
+  margin: 30px auto;
+  border-top: solid 8px teal;
+}
+
+.movie-wishlist > * {
+  padding: 10px 20px;
+}
+
+.movie-wishlist h1 {
+  margin: 0;
+  line-height: 1;
+}
+
+.movie-wishlist .movies {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.movie-wishlist h2 {
+  margin: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  line-height: 1;
+  position: relative;
+}
+
+.movie-wishlist h2::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -20px;
+  top: 15%;
+  width: 1px;
+  height: 70%;
+  border-left: solid 4px teal;
+}
+
+.movie-wishlist h2 .content {
+  line-height: 30px;
+}
+
+.movie-wishlist h2 .total {
+  border-radius: 6px;
+  display: block;
+  float: right;
+  background: teal;
+  color: #fff;
+  padding: 4px;
+  min-width: 1.5em;
+  text-align: center;
+}
+
+.movie-wishlist .new {
+  order: 1;
+}
+
+.movie-wishlist .pending {
+  order: 3;
+}
+
+.movie-wishlist .done {
+  order: 5;
+}
+
+.movie-wishlist .new-input {
+  order: 2;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid gray;
+  font-size: 16px;
+  font-style: italic;
+  color: #2a2a2a;
+  padding: 3px 3px;
+  margin: 10px 6px;
+  outline: none;
+}
+
+.movie-wishlist input[type="checkbox"] {
+  position: absolute;
+  left: -999px;
+}
+
+.movie-wishlist input[type="checkbox"]:focus + label {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.movie-wishlist input[type="checkbox"]:checked + label {
+  order: 6;
+  animation: done 0.6s;
+}
+
+.movie-wishlist input[type="checkbox"]:checked + label::before {
+  content: "";
+}
+
+.movie-wishlist label {
+  order: 4;
+  animation: pending 0.6s;
+  display: block;
+  position: relative;
+  padding: 10px 0 10px 40px;
+  border-top: dashed 1px #fff;
+  cursor: pointer;
+}
+
+.movie-wishlist label:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.movie-wishlist label::before {
+  content: "";
+  font: 28px "FontAwesome";
+  display: block;
+  position: absolute;
+  left: 10px;
+  top: 8px;
+}
+
+@keyframes done {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+    background: rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.4);
+  }
+}
+
+@keyframes pending {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+    background: rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.4);
+  }
+}
