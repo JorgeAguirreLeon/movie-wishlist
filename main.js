@@ -3,7 +3,7 @@ const save = data=> {
 }
 
 const load = ()=> {
-  JSON.parse(localStorage.getItem('movie-data'))
+  return JSON.parse(localStorage.getItem('movie-data'))
 }
 
 const movie_html = (movie, index)=> {
