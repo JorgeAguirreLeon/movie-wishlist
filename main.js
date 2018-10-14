@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', event=> {
 
   // Data load
   let data = load()
-  let movies = data.movies || []
+  let movies = data && data.movies || []
 
   // Initial render
   loadMovies(movies)
